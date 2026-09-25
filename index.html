@@ -3,89 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio - Fajar Pratama</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .hero { background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); color: white; padding: 80px 0; }
-        .card-project { transition: transform 0.3s ease, box-shadow 0.3s ease; border: none; height: 100%; }
-        .card-project:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important; }
-        .btn-live { border-radius: 50px; font-weight: 600; }
+        :root {
+            --primary-color: #0d6efd;
+            --dark-color: #212529;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 100px 0 80px;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        .badge-skill {
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 50px;
+        }
+        .timeline-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            left: -7.5px;
+            top: 5px;
+        }
+        .btn-live {
+            border-radius: 50px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION / PROFIL SINGKAT -->
-    <section class="hero text-center mb-5">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <h1 class="fw-bold display-4 mb-3">Halo, Saya [Nama Anda] 👋</h1>
-            <p class="lead mb-4">Web Developer | Pengembang Sistem Informasi & Aplikasi Web</p>
+            <a class="navbar-brand fw-bold" href="#beranda">
+                <i class="fa-solid fa-code me-2 text-primary"></i>Fajar Pratama
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyek">Portofolio Web</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pengalaman">Pengalaman</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sertifikasi">Sertifikasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section text-center" id="beranda">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Fajar Pratama, S.Kom</h1>
+            <p class="lead mb-4">Web Developer | S1 Teknologi Informasi (CumLaude)</p>
+            <p class="mx-auto text-light opacity-90 mb-4" style="max-width: 700px;">
+                Spesialisasi dalam pengembangan aplikasi web berbasis PHP dan Laravel. Berpengalaman membangun sistem digital fungsional, responsif, serta mudah diakses.
+            </p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#proyek" class="btn btn-light btn-lg rounded-pill px-4 font-weight-bold">Lihat Proyek Saya</a>
+                <a href="#proyek" class="btn btn-light btn-lg rounded-pill px-4 font-weight-bold shadow-sm">
+                    <i class="fa-solid fa-laptop-code me-2"></i>Lihat Proyek
+                </a>
+                <a href="#kontak" class="btn btn-outline-light btn-lg rounded-pill px-4">Hubungi Saya</a>
             </div>
         </div>
     </section>
 
-    <!-- DAFTAR PROYEK (MENAMPILKAN 2 WEBSITE ANDA) -->
-    <section class="container py-4" id="proyek">
-        <h2 class="fw-bold text-center mb-5"><i class="fa-solid fa-laptop-code me-2 text-primary"></i>Portofolio & Proyek Web</h2>
-        
-        <div class="row g-4 justify-content-center">
+    <!-- TENTANG & KEAHLIAN -->
+    <section class="py-5 bg-light" id="tentang">
+        <div class="container py-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <span class="badge bg-primary mb-2">Profil Profesional</span>
+                    <h2 class="fw-bold mb-3">Tentang Saya</h2>
+                    <p class="text-secondary" style="text-align: justify;">
+                        Lulusan S1 Teknologi Informasi Universitas Tangerang Raya dengan predikat CumLaude (IPK 3.86/4.00). Memiliki keahlian kuat dalam pengembangan web penuh (*full-stack web development*), perancangan basis data, serta integrasi sistem digital untuk mendukung transformasi organisasi dan UMKM.
+                    </p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded shadow-sm">
+                                <h6 class="fw-bold mb-1"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>Pendidikan</h6>
+                                <small class="text-muted">S1 Teknologi Informasi - Univ. Tangerang Raya (IPK 3.86)</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-white rounded shadow-sm">
+                                <h6 class="fw-bold mb-1"><i class="fa-solid fa-location-dot text-primary me-2"></i>Domisili</h6>
+                                <small class="text-muted">Tangerang, Banten, Indonesia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white rounded-4 shadow-sm border">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-screwdriver-wrench text-primary me-2"></i>Keahlian & Teknologi</h5>
+                        <div class="mb-3">
+                            <h6 class="small text-muted mb-2">Hard Skills:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-primary badge-skill">PHP</span>
+                                <span class="badge bg-primary badge-skill">Laravel</span>
+                                <span class="badge bg-primary badge-skill">MySQL</span>
+                                <span class="badge bg-primary badge-skill">HTML & CSS</span>
+                                <span class="badge bg-primary badge-skill">Python</span>
+                                <span class="badge bg-primary badge-skill">XAMPP</span>
+                                <span class="badge bg-primary badge-skill">Perancangan Database</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <h6 class="small text-muted mb-2">Soft Skills & Bahasa:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-secondary badge-skill">Berpikir Kritis</span>
+                                <span class="badge bg-secondary badge-skill">Adaptasi Tinggi</span>
+                                <span class="badge bg-secondary badge-skill">Manajemen Waktu</span>
+                                <span class="badge bg-secondary badge-skill">Kerjasama Tim</span>
+                                <span class="badge bg-dark badge-skill">Bahasa Indonesia (Native)</span>
+                                <span class="badge bg-dark badge-skill">Bahasa Inggris (Intermediate)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTOFOLIO PROYEK WEB LIVE -->
+    <section class="py-5" id="proyek">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-2">Hasil Karya</span>
+                <h2 class="fw-bold">Portofolio & Proyek Web Live</h2>
+                <p class="text-muted">Berikut adalah aplikasi web yang telah diselesaikan dan dapat diakses secara langsung.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- PROYEK 1: GALERI ARSIP VIRTUAL -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="card card-custom shadow-sm p-3">
+                        <div class="card-body d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge bg-primary">PHP Native</span>
+                                <span class="badge bg-info text-dark">MySQL</span>
+                                <span class="badge bg-success">Live Website</span>
+                            </div>
+                            <h4 class="card-title fw-bold">Sistem Galeri Artikel & Arsip Digital</h4>
+                            <p class="card-text text-secondary small flex-grow-1" style="text-align: justify;">
+                                Platform galeri web berbasis PHP Native dan MySQL untuk mengelola dokumentasi sejarah serta arsip daerah Kabupaten Tangerang. Dilengkapi fitur pencarian artikel, pengelolaan kategori, serta pameran virtual 3D interaktif.
+                            </p>
+                            <div class="pt-3 border-top mt-auto">
+                                <a href="http://artikel-digital.infinityfreeapp.com" target="_blank" class="btn btn-primary w-100 btn-live shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Buka Website Live
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROYEK 2: PROMOSI UMKM KRESEK -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="card card-custom shadow-sm p-3">
+                        <div class="card-body d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge bg-primary">PHP Native</span>
+                                <span class="badge bg-info text-dark">MySQL</span>
+                                <span class="badge bg-success">Live Website</span>
+                            </div>
+                            <h4 class="card-title fw-bold">Platform Web Promosi UMKM Ndog Asin</h4>
+                            <p class="card-text text-secondary small flex-grow-1" style="text-align: justify;">
+                                Website katalog promosi UMKM Desa Kresek untuk mendukung digitalisasi pemasaran produk lokal. Memiliki antarmuka responsif dan informatif guna mempermudah calon pelanggan mengakses katalog produk secara cepat.
+                            </p>
+                            <div class="pt-3 border-top mt-auto">
+                                <a href="http://umkmkresek.infinityfreeapp.com" target="_blank" class="btn btn-primary w-100 btn-live shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Buka Website Live
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGALAMAN KERJA & ORGANISASI -->
+    <section class="py-5 bg-light" id="pengalaman">
+        <div class="container py-4">
+            <div class="row g-5">
+                <!-- PENGALAMAN KERJA -->
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4"><i class="fa-solid fa-briefcase text-primary me-2"></i>Pengalaman Kerja & Magang</h3>
+                    
+                    <div class="timeline-item">
+                        <h5 class="fw-bold mb-1">Web Developer (Pegawai Magang)</h5>
+                        <p class="text-primary small fw-semibold mb-2">Dinas Perpustakaan dan Kearsipan Kab. Tangerang | Mei 2025 – Agu 2025</p>
+                        <ul class="text-secondary small ps-3">
+                            <li>Merancang dan mengembangkan website Galeri Arsip Virtual menggunakan PHP Native dan MySQL.</li>
+                            <li>Membangun antarmuka responsif dan terstruktur guna mendukung transformasi digital kearsipan daerah.</li>
+                            <li>Mengintegrasikan sistem pengelolaan data arsip untuk meningkatkan efisiensi layanan publik.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h5 class="fw-bold mb-1">Web Developer (Freelance)</h5>
+                        <p class="text-primary small fw-semibold mb-2">Ndog Asin Desa Kresek | Nov 2025 – Des 2025</p>
+                        <ul class="text-secondary small ps-3">
+                            <li>Mengembangkan platform web promosi UMKM berbasis PHP Native dan MySQL.</li>
+                            <li>Mendesain antarmuka pengguna (UI) katalog produk untuk meningkatkan visibilitas online UMKM.</li>
+                            <li>Mengoptimalkan struktur web untuk memastikan kecepatan aksesibilitas informasi bagi pengguna.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PENGALAMAN ORGANISASI -->
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4"><i class="fa-solid fa-users text-primary me-2"></i>Pengalaman Organisasi</h3>
+                    
+                    <div class="timeline-item">
+                        <h5 class="fw-bold mb-1">Hubungan Masyarakat (Humas)</h5>
+                        <p class="text-primary small fw-semibold mb-2">Himpunan Mahasiswa Teknologi Informasi | Mei 2022 – Feb 2023</p>
+                        <ul class="text-secondary small ps-3">
+                            <li>Mengelola komunikasi efektif dengan pihak eksternal termasuk dosen pembimbing, peserta, dan tamu undangan.</li>
+                            <li>Bertanggung jawab atas koordinasi logistik informasi demi kelancaran alur acara organisasi.</li>
+                            <li>Menjadi representatif organisasi dalam membangun kemitraan dan jaringan komunikasi antar lembaga.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERTIFIKASI -->
+    <section class="py-5" id="sertifikasi">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary mb-2">Lisensi & Validasi</span>
+                <h2 class="fw-bold">Sertifikasi Resmi</h2>
+            </div>
             
-            <!-- KARTU PROYEK 1 -->
-            <div class="col-md-6 col-lg-5">
-                <div class="card card-project shadow-sm rounded-4 overflow-hidden p-3">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-2">
-                            <span class="badge bg-primary">PHP & MySQL</span>
-                            <span class="badge bg-secondary">Web Live</span>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 shadow-sm border h-100 d-flex align-items-start">
+                        <i class="fa-solid fa-award fa-2x text-warning me-3 mt-1"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Sertifikat Kompetensi BNSP</h5>
+                            <p class="text-muted small mb-1">Badan Nasional Sertifikasi Profesi (BNSP)</p>
+                            <span class="badge bg-light text-dark border mb-2">No: 58200 2513 4 0025999 2025</span>
+                            <p class="text-secondary small mb-0">Diterbitkan: November 2025</p>
                         </div>
-                        <h4 class="card-title fw-bold">Sistem Galeri Artikel & Arsip Digital</h4>
-                        <p class="card-text text-muted flex-grow-1">
-                            Aplikasi galeri berbasis web untuk mengelola dan menampilkan dokumentasi arsip digital interaktif yang dilengkapi fitur pameran virtual 3D.
-                        </p>
-                        <div class="pt-3 border-top mt-auto">
-                            <!-- MASUKKAN LINK WEBSITE 1 ANDA DI SINI -->
-                            <a href="http://artikel-digital.infinityfreeapp.com" target="_blank" class="btn btn-primary w-100 btn-live shadow-sm">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i> Buka Website Live
-                            </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <div class="p-4 bg-white rounded-4 shadow-sm border h-100 d-flex align-items-start">
+                        <i class="fa-solid fa-certificate fa-2x text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Sertifikasi Web Galeri Arsip Virtual</h5>
+                            <p class="text-muted small mb-1">BSrE - Badan Siber dan Sandi Negara (BSSN)</p>
+                            <span class="badge bg-light text-dark border mb-2">No: B/000.5/11/VII/Perpusip/2025</span>
+                            <p class="text-secondary small mb-0">Diterbitkan: Juni 2025</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- KARTU PROYEK 2 -->
-            <div class="col-md-6 col-lg-5">
-                <div class="card card-project shadow-sm rounded-4 overflow-hidden p-3">
-                    <div class="card-body d-flex flex-column">
-                        <div class="mb-2">
-                            <span class="badge bg-success">Aplikasi Web</span>
-                            <span class="badge bg-secondary">Web Live</span>
-                        </div>
-                        <h4 class="card-title fw-bold">[Nama Website Ke-2 Anda]</h4>
-                        <p class="card-text text-muted flex-grow-1">
-                            Tuliskan deskripsi singkat mengenai fungsi, teknologi yang digunakan, serta keunggulan dari website ke-2 Anda di sini.
-                        </p>
-                        <div class="pt-3 border-top mt-auto">
-                            <!-- MASUKKAN LINK WEBSITE 2 ANDA DI SINI -->
-                            <a href="https://link-website-2-anda.com" target="_blank" class="btn btn-outline-primary w-100 btn-live">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-2"></i> Buka Website Live
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="text-center py-4 bg-white border-top mt-5">
-        <p class="text-muted small mb-0">&copy; 2026 Portofolio Saya. Hosted on GitHub Pages.</p>
+    <!-- KONTAK -->
+    <footer class="bg-dark text-white py-5" id="kontak">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">Mari Bekerja Sama!</h2>
+            <p class="text-muted mb-4" style="max-width: 500px; margin: auto;">Saya terbuka untuk peluang kerja sebagai Web Developer atau proyek lepas (*freelance*).</p>
+            
+            <div class="d-flex justify-content-center gap-4 mb-4 flex-wrap">
+                <a href="tel:085774920679" class="text-white text-decoration-none">
+                    <i class="fa-solid fa-phone text-primary me-2"></i>085774920679
+                </a>
+                <a href="mailto:fajarpratamaa69@gmail.com" class="text-white text-decoration-none">
+                    <i class="fa-solid fa-envelope text-primary me-2"></i>fajarpratamaa69@gmail.com
+                </a>
+                <span class="text-white">
+                    <i class="fa-solid fa-location-dot text-primary me-2"></i>Tangerang, Banten
+                </span>
+            </div>
+
+            <hr class="border-secondary my-4">
+            <p class="text-muted small mb-0">&copy; 2026 Fajar Pratama. Hosted on GitHub Pages.</p>
+        </div>
     </footer>
 
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
 </body>
 </html>
